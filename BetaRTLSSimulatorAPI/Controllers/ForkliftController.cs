@@ -7,25 +7,25 @@ namespace BetaRTLSSimulatorAPI.Controllers
     public class ForkliftController : ControllerBase
     {
         private readonly ILogger<ForkliftController> _logger;
-        private PositionInformation _positionInformation;
+        private PositionNotification _positionNotification;
 
-        public ForkliftController(ILogger<ForkliftController> logger, PositionInformation positionInformation)
+        public ForkliftController(ILogger<ForkliftController> logger, PositionNotification positionInformation)
         {
             _logger = logger;
-            _positionInformation = positionInformation;
+            _positionNotification = positionInformation;
         }
 
         [HttpGet("GetPosition")]
         public IActionResult GetPosition()
         {
-            return Ok(_positionInformation);
+            return Ok(_positionNotification);
         }
 
         [HttpPut("PutPosition")]
-        public IActionResult SetPosition([FromBody] PositionInformation req)
+        public IActionResult SetPosition([FromBody] PositionNotification req)
         {
-            _positionInformation.Copy(req);
-            return Ok(_positionInformation);
+            _positionNotification.Copy(req);
+            return Ok(_positionNotification);
         }
     }
 }

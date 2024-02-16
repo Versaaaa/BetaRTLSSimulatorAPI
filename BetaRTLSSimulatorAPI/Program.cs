@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<PositionInformation>();
+builder.Services.AddSingleton<PositionNotification>();
 
 builder.Services.AddCors(options =>
 {
